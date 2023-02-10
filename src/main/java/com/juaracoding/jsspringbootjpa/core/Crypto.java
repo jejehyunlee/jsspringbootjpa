@@ -14,7 +14,7 @@ public class Crypto {
         this is defualt encrypt key : bbfd12f438dbf52538b479e2089ddec2g06cb58faafd12f6
      */
 
-  private static String defaultKey = "aafd12f650cae52538b479e2089ddec2f06cb58faafd12f6";
+  private static String defaultKey = "";
     public static String performEncrypt(String keyText, String plainText) {
         try{
             byte[] key = Hex.decode(keyText.getBytes());
