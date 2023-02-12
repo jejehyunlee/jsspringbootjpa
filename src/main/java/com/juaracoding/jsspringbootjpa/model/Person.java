@@ -20,9 +20,6 @@ public class Person extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "Username")
-    private String username;
-
     @Column(name = "Firstname")
     private String firstname;
 
@@ -34,7 +31,6 @@ public class Person extends BaseEntity{
 
     public Person(long id, String username, String firstname, String lastname) {
         this.id = id;
-        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -45,14 +41,6 @@ public class Person extends BaseEntity{
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getFirstname() {
