@@ -21,20 +21,20 @@ import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseEntity<T> {
-
-    @CreatedBy
-    @Column(name = "CreatedBy")
-    private T createdBy;
+public class BaseEntity {
+//
+//    @CreatedBy
+//    @Column(name = "CreatedBy")
+//    private String createdBy;
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column( name = "CreatedDate", nullable = false )
     private Date createdDate;
 
-    @LastModifiedBy
-    @Column(name = "UpdateBy")
-    private T updateBy;
+//    @LastModifiedBy
+//    @Column(name = "UpdateBy")
+//    private String updateBy;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
@@ -47,21 +47,13 @@ public class BaseEntity<T> {
     public BaseEntity() {
     }
 
-    public BaseEntity(T createdBy, Date createdDate, T updateBy, Date updatedDate, Boolean isDeleted) {
-        this.createdBy = createdBy;
-        this.createdDate = createdDate;
-        this.updateBy = updateBy;
-        this.updatedDate = updatedDate;
-        this.isDeleted = isDeleted;
-    }
-
-    public T getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(T createdBy) {
-        this.createdBy = createdBy;
-    }
+//    public String getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(String createdBy) {
+//        this.createdBy = createdBy;
+//    }
 
     public Date getCreatedDate() {
         return createdDate;
@@ -71,13 +63,13 @@ public class BaseEntity<T> {
         this.createdDate = createdDate;
     }
 
-    public T getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(T updateBy) {
-        this.updateBy = updateBy;
-    }
+//    public String getUpdateBy() {
+//        return updateBy;
+//    }
+//
+//    public void setUpdateBy(String updateBy) {
+//        this.updateBy = updateBy;
+//    }
 
     public Date getUpdatedDate() {
         return updatedDate;
