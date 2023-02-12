@@ -14,39 +14,29 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="MstPerson")
-public class Person {
+public class Person extends BaseEntity{
     @Id
     @Column(name = "IDPerson",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "username")
+    @Column(name = "Username")
     private String username;
-    @Column(name = "firstname")
+
+    @Column(name = "Firstname")
     private String firstname;
 
-    @Column(name = "lastname")
+    @Column(name = "Lastname")
     private String lastname;
 
-    @Column(name = "CreateBy")
-    private String CreateBy;
-    @Column(name = "ModifiedBy")
-    private String ModifiedBy;
+    public Person() {
+    }
 
-    @Column(name = "IsDelete")
-    private String IsDelete ;
-
-    public Person(long id, String username, String firstname, String lastname, String createBy, String modifiedBy, String isDelete) {
+    public Person(long id, String username, String firstname, String lastname) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
-        CreateBy = createBy;
-        ModifiedBy = modifiedBy;
-        IsDelete = isDelete;
-    }
-
-    public Person() {
     }
 
     public long getId() {
@@ -79,29 +69,5 @@ public class Person {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getCreateBy() {
-        return CreateBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        CreateBy = createBy;
-    }
-
-    public String getModifiedBy() {
-        return ModifiedBy;
-    }
-
-    public void setModifiedBy(String modifiedBy) {
-        ModifiedBy = modifiedBy;
-    }
-
-    public String getIsDelete() {
-        return IsDelete;
-    }
-
-    public void setIsDelete(String isDelete) {
-        IsDelete = isDelete;
     }
 }
