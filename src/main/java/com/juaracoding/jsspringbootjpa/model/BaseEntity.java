@@ -30,7 +30,7 @@ public class BaseEntity {
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column( name = "CreatedDate", nullable = false )
-    private Date createdDate;
+    private Date createdDate = new Date();
 
 //    @LastModifiedBy
 //    @Column(name = "UpdateBy")
