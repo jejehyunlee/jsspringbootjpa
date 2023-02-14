@@ -10,6 +10,7 @@ Created On 2/14/2023 03:45
 Version 1.0
 */
 
+import com.juaracoding.jsspringbootjpa.handler.ResourceNotFoundException;
 import com.juaracoding.jsspringbootjpa.model.CategoryProduct;
 import com.juaracoding.jsspringbootjpa.repo.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,9 +73,20 @@ public class CategoryProductService {
    }
 
   @Transactional
-   public void updateCategoryProduct(CategoryProduct categoryProduct, long id){
+   public void updateCategoryProduct(CategoryProduct categoryProduct, long id) throws Exception{
+      CategoryProduct cProduct = categoryRepo.findById(id).orElseThrow (
+              ()->  new ResourceNotFoundException("Data tidak ditemukan")
+      );
 
-        Optional<CategoryProduct> opt = categoryRepo.findById(id);
+
+      if (cProduct!=null){
+          cProduct.setNameCategoryProduct(categoryProduct.getNameCategoryProduct());
+          cProduct.setDescCategoryProduct(categoryProduct.getDescCategoryProduct());
+          cProduct.setModifiedBy(categoryProduct.getModifiedBy());
+          cProduct.setModifiedDate(new Date());
+      }
+
+
    }
 
 }
