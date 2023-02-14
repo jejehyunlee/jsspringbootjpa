@@ -42,8 +42,8 @@ public class CategoryProductController {
         categoryService.saveAllDataCategory(categoryProductList);
     }
 
-    @PostMapping("/v1/s/{id}")
-    public void updateCategoryProduct(@Valid @RequestBody CategoryProduct categoryProduct, @PathVariable Long id) {
+    @PostMapping("/v1/sl/{id}")
+    public void updateCategoryProduct(@Valid @RequestBody CategoryProduct categoryProduct, @PathVariable Long id) throws Exception{
 
         categoryService.updateCategoryProduct(categoryProduct, id);
     }
