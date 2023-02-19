@@ -58,19 +58,6 @@ public class Provinsi {
     public Provinsi() {
     }
 
-    public Provinsi(Long idProvinsi, String namaProvinsi, String singkatan, String lat, String lon, String namaPemimpin, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, boolean isActive) {
-        this.idProvinsi = idProvinsi;
-        this.namaProvinsi = namaProvinsi;
-        this.singkatan = singkatan;
-        this.lat = lat;
-        this.lon = lon;
-        this.namaPemimpin = namaPemimpin;
-        this.createdBy = createdBy;
-        this.createdDate = createdDate;
-        this.modifiedBy = modifiedBy;
-        this.modifiedDate = modifiedDate;
-        this.isActive = isActive;
-    }
 
     public Long getIdProvinsi() {
         return idProvinsi;
