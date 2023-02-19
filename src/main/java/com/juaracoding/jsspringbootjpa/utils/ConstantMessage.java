@@ -57,6 +57,6 @@ public class ConstantMessage {
     public final static String CHAR_NAME_NOTEMPY ="Nama kategori tidak boleh kosong";
     public final static String CHAR_DESC_NOTEMPTY ="Descipsi tidak boleh kosong";
 
-
+    public final static String ERROR_EMPTY_FILE = "FILE KOSONG , TIDAK ADA DATA !! ";
 
 }
