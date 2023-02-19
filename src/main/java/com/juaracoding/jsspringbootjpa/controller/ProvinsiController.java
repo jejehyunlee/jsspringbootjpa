@@ -11,10 +11,10 @@ Version 1.0
 */
 
 import com.juaracoding.jsspringbootjpa.handler.ResponseHandler;
-import com.juaracoding.jsspringbootjpa.model.CategoryProduct;
 import com.juaracoding.jsspringbootjpa.model.Provinsi;
 import com.juaracoding.jsspringbootjpa.service.ProvinsiService;
 import com.juaracoding.jsspringbootjpa.utils.ConstantMessage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +31,7 @@ public class ProvinsiController {
 
     private ProvinsiService provinsiService;
 
+    @Autowired
     public ProvinsiController(ProvinsiService provinsiService) {
         this.provinsiService = provinsiService;
     }
@@ -55,7 +56,11 @@ public class ProvinsiController {
         provinsiService.saveAllDataProvinsi(provinsiList);
 
         return new ResponseHandler().
-                generateResponse(ConstantMessage.SUCCESS_SAVE, HttpStatus.OK, null, null, null);
+                generateResponse(ConstantMessage.SUCCESS_SAVE,
+                        HttpStatus.OK,
+                        null,
+                        null,
+                        null);
     }
 
 
