@@ -23,10 +23,10 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-    @Column(name = "CreatedDate")
+    @Column(name = "CreatedDate",nullable = false)
     private Date createdDate = new Date();
 
-    @Column(name = "CreatedBy")
+    @Column(name = "CreatedBy", nullable = false)
     private Integer createdBy;
 
     @Column(name = "ModifiedDate")
@@ -36,7 +36,7 @@ public class BaseEntity {
     private Integer modifiedBy;
 
     @Column ( name = "IsDeleted", nullable = false )
-    private Boolean isDeleted = Boolean.TRUE;
+    private Byte isDeleted = 1;
 
     public Date getCreatedDate() {
         return createdDate;
@@ -70,15 +70,15 @@ public class BaseEntity {
         this.modifiedBy = modifiedBy;
     }
 
-    public Boolean getDeleted() {
+    public Byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
-//
+    //
 //    @CreatedBy
 //    @Column(name = "CreatedBy")
 //    private String createdBy;
