@@ -16,10 +16,11 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Entity
 @Table (name = "MstCategoryProduct")
-public class CategoryProduct extends BaseEntity {
+public class CategoryProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDCategoryProduct", nullable = false)
@@ -34,13 +35,25 @@ public class CategoryProduct extends BaseEntity {
     @NotEmpty(message = ConstantMessage.CHAR_DESC_NOTEMPTY)
     private String descCategoryProduct;
 
-    public CategoryProduct() {
-    }
+    //Start AuditTrail
+    @Column(name = "CreatedDate",nullable = false)
+    private Date createdDate = new Date();
 
-    public CategoryProduct(Long idCategoryProduct, String nameCategoryProduct, String descCategoryProduct) {
-        this.idCategoryProduct = idCategoryProduct;
-        this.nameCategoryProduct = nameCategoryProduct;
-        this.descCategoryProduct = descCategoryProduct;
+    @Column(name = "CreatedBy", nullable = false)
+    private Integer createdBy;
+
+    @Column(name = "ModifiedDate")
+    private Date modifiedDate;
+
+    @Column(name = "ModifiedBy")
+    private Integer modifiedBy;
+
+    @Column ( name = "IsDeleted", nullable = false )
+    private Byte isDeleted = 1;
+    //End AuditTrail
+
+
+    public CategoryProduct() {
     }
 
     public Long getIdCategoryProduct() {
@@ -65,6 +78,46 @@ public class CategoryProduct extends BaseEntity {
 
     public void setDescCategoryProduct(String descCategoryProduct) {
         this.descCategoryProduct = descCategoryProduct;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Integer getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Integer createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Integer getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Integer modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }
 
