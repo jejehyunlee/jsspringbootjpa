@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2).
                 select().
-                apis(RequestHandlerSelectors.basePackage("edu.paul._01springbootrestapi.controllers")).
+                apis(RequestHandlerSelectors.basePackage("com.juaracoding.jsspringbootjpa.controller")).
                 paths(PathSelectors.any()).build()
                 .apiInfo(apiInfo());
     }
@@ -36,10 +36,10 @@ public class SwaggerConfig {
     {
         ApiInfo apiInfo = new ApiInfo(
                 "SpringBootRestAPI",//title
-                "Springboot bootcamp BCAF BATCH 1",//descriptions
+                "Springboot bootcamp JUARACODING BATCH 14",//descriptions
                 "v1.0",//version
                 "Term Of Services URL is On Progress",//termsOfServiceUrl
-                new Contact("Paul Christian","localhost:8080/api/v1","poll.chihuy@gmail.com"),//Contact Name
+                new Contact("JEJE HYUN LEE","localhost:8080/api/v1","jefrisaputra989@gmail.com"),//Contact Name
                 "Springboot Open Source License",//license
                 "https://spring.io/",//licenseUrl
                 Collections.emptyList()
