@@ -10,16 +10,20 @@ Created On 2/18/2023 23:21
 Version 1.0
 */
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "MstTugasA")
 public class TugasA {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "IDTugasA", nullable = false)
-    private Long idTugasA;
+    private String idTugasA;
 
     @Column(name = "Nama", nullable = false, length = 40)
     private String nama;
@@ -28,7 +32,7 @@ public class TugasA {
     private String alamat;
 
     @Column(name = "TanggalLahir", nullable = false)
-    private Date tanggalLahir;
+    private LocalDate tanggalLahir;
 
     @Column(name = "JenisKelamin", nullable = false)
     private Character jenisKelamin;
@@ -38,7 +42,7 @@ public class TugasA {
 
 
     // Start Of auditTrail
-    @Column(name = "CreatedDate",nullable = false)
+    @Column(name = "CreatedDate", nullable = false)
     private Date createdDate = new Date();
 
     @Column(name = "CreatedBy", nullable = false)
@@ -50,16 +54,16 @@ public class TugasA {
     @Column(name = "ModifiedBy")
     private Integer modifiedBy;
 
-    @Column ( name = "IsDeleted", nullable = false )
+    @Column(name = "IsDeleted", nullable = false)
     private Byte isDeleted = 1;
     // End Of AuditTrail
 
 
-    public Long getIdTugasA() {
+    public String getIdTugasA() {
         return idTugasA;
     }
 
-    public void setIdTugasA(Long idTugasA) {
+    public void setIdTugasA(String idTugasA) {
         this.idTugasA = idTugasA;
     }
 
@@ -79,11 +83,11 @@ public class TugasA {
         this.alamat = alamat;
     }
 
-    public Date getTanggalLahir() {
+    public LocalDate getTanggalLahir() {
         return tanggalLahir;
     }
 
-    public void setTanggalLahir(Date tanggalLahir) {
+    public void setTanggalLahir(LocalDate tanggalLahir) {
         this.tanggalLahir = tanggalLahir;
     }
 
