@@ -11,10 +11,11 @@ Version 1.0
 */
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="MstPerson")
-public class Person extends BaseEntity{
+public class Person{
     @Id
     @Column(name = "IDPerson",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,13 +27,25 @@ public class Person extends BaseEntity{
     @Column(name = "Lastname")
     private String lastname;
 
-    public Person() {
-    }
+    //Start AuditTrail
+    @Column(name = "CreatedDate",nullable = false)
+    private Date createdDate = new Date();
 
-    public Person(long id, String username, String firstname, String lastname) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+    @Column(name = "CreatedBy", nullable = false)
+    private Integer createdBy;
+
+    @Column(name = "ModifiedDate")
+    private Date modifiedDate;
+
+    @Column(name = "ModifiedBy")
+    private Integer modifiedBy;
+
+    @Column ( name = "IsDeleted", nullable = false )
+    private Byte isDeleted = 1;
+    //End AuditTrail
+
+
+    public Person() {
     }
 
     public long getId() {
@@ -57,5 +70,45 @@ public class Person extends BaseEntity{
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Integer getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Integer createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Integer getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Integer modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }
