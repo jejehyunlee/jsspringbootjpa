@@ -11,16 +11,23 @@ Version 1.0
 */
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 @Table(name = "MstProduct")
 public class Product{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDProduct", nullable = false)
-    private Long id;
 
+    private static final long serialversionUID = 1L;
+
+    @Id
+    @Column(name = "IDProduct")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProduct;
+
+    @NotEmpty
+    @NotNull
     @Column(name = "NameProduct")
     private String nameProduct;
 
@@ -28,30 +35,35 @@ public class Product{
     @JoinColumn(name = "IDCategoryProduct")
     private CategoryProduct categoryProduct;
 
-    @Column(name = "CreatedBy",nullable = false)
-    private String createdBy = "1";
+    @Column(name = "DescriptionProduct")
+    private String descriptionProduct;
 
-    @Column(name = "CreatedDate",nullable = false)
+    /*
+       start audit trails
+    */
+    @Column(name ="CreatedDate" , nullable = false)
     private Date createdDate = new Date();
 
-    @Column(name = "ModifiedBy")
-    private String modifiedBy ;
+    @Column(name = "CreatedBy", nullable = false)
+    private Integer createdBy;
 
     @Column(name = "ModifiedDate")
     private Date modifiedDate;
+    @Column(name = "ModifiedBy")
+    private Integer modifiedBy;
 
-    @Column(name = "IsActive",nullable = false)
-    private boolean isActive = true;
+    @Column(name = "IsDelete", nullable = false)
+    private Byte isDelete = 1;
+    /*
+        end audit trails
+     */
 
-    public Product() {
+    public Long getIdProduct() {
+        return idProduct;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdProduct(Long idProduct) {
+        this.idProduct = idProduct;
     }
 
     public String getNameProduct() {
@@ -70,12 +82,12 @@ public class Product{
         this.categoryProduct = categoryProduct;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getDescriptionProduct() {
+        return descriptionProduct;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setDescriptionProduct(String descriptionProduct) {
+        this.descriptionProduct = descriptionProduct;
     }
 
     public Date getCreatedDate() {
@@ -86,12 +98,12 @@ public class Product{
         this.createdDate = createdDate;
     }
 
-    public String getModifiedBy() {
-        return modifiedBy;
+    public int getCreatedBy() {
+        return createdBy;
     }
 
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Date getModifiedDate() {
@@ -102,11 +114,22 @@ public class Product{
         this.modifiedDate = modifiedDate;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public Integer getModifiedBy() {
+        return modifiedBy;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setModifiedBy(Integer modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
+
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
+    }
+
+
+
 }
