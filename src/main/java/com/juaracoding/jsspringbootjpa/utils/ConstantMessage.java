@@ -59,5 +59,25 @@ public class ConstantMessage {
 
     public final static String ERROR_EMPTY_FILE = "FILE KOSONG , TIDAK ADA DATA !! ";
 
+    public final static String ERROR_SAVE_FAILED = "DATA GAGAL DISIMPAN";
+
+    /*
+    Kategori Buku
+ */
+    public final static String WARNING_NAMA_KATBUK_EMPTY  = "NAMA KATEGORI BUKU WAJIB DIISI";
+    public final static String WARNING_NAMA_KATBUK_MAX  = "NAMA KATEGORI BUKU MAKSIMAL 50 KARAKTER";
+    public final static String WARNING_DESKRIPSI_KATBUK_EMPTY  = "DESKRIPSI KATEGORI BUKU WAJIB DIISI";
+    public final static String WARNING_DESKRIPSI_KATBUK_MAX  = "DESKRIPSI KATEGORI MAKSIMAL 100 KARAKTER";
+
+
+    /*
+        Buku
+     */
+    public final static String WARNING_NAMA_BUKU_EMPTY  = "NAMA KATEGORI BUKU WAJIB DIISI";
+    public final static String WARNING_NAMA_BUKU_MAX  = "NAMA KATEGORI BUKU MAKSIMAL 50 KARAKTER";
+    public final static String WARNING_DESKRIPSI_BUKU_EMPTY  = "DESKRIPSI KATEGORI BUKU WAJIB DIISI";
+    public final static String WARNING_DESKRIPSI_BUKU_MAX  = "DESKRIPSI KATEGORI MAKSIMAL 100 KARAKTER";
+
+
 
 }
